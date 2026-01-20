@@ -1,0 +1,99 @@
+% LaTeX rebuttal letter example.
+%
+% Copyright 2019 Friedemann Zenke, fzenke.net
+%
+% Based on examples by Dirk Eddelbuettel, Fran and others from
+% https://tex.stackexchange.com/questions/2317/latex-style-or-macro-for-detailed-response-to-referee-report
+%
+% Licensed under cc by-sa 3.0 with attribution required.
+
+\documentclass[11pt]{article}
+% \usepackage{xeCJK}
+% \usepackage[utf8]{inputenc}
+\usepackage{fullpage}
+\usepackage[colorlinks,linkcolor=black,anchorcolor=black,citecolor=black, urlcolor=blue]{hyperref}
+\usepackage{fancyvrb,fvextra}
+
+% import Eq and Section references from the main manuscript where needed
+% \usepackage{xr}
+% \externaldocument{manuscript}
+
+% package needed for optional arguments
+\usepackage{xifthen}
+% define counters for reviewers and their points
+\newcounter{reviewer}
+\setcounter{reviewer}{0}
+\newcounter{point}[reviewer]
+\setcounter{point}{0}
+
+% This refines the format of how the reviewer/point reference will appear.
+\renewcommand{\thepoint}{P\,\thereviewer.\arabic{point}}
+
+% command declarations for reviewer points and our responses
+\newcommand{\reviewersection}{\stepcounter{reviewer} \bigskip \hrule \section*{Reviewer \thereviewer}}
+
+\newenvironment{point}
+   {\refstepcounter{point} \bigskip \noindent {\textbf{Reviewer~Point~\thepoint} }}
+   {\par }
+
+\newcommand{\shortpoint}[1]{\refstepcounter{point}  \bigskip \noindent
+	{\textbf{Reviewer~Point~\thepoint} } ---~#1\par }
+
+\newenvironment{reply}
+   {\medskip \noindent \begin{sf}\textbf{Reply}:\  }
+   {\medskip \end{sf}}
+
+\newcommand{\shortreply}[2][]{\medskip \noindent \begin{sf}\textbf{Reply}:\  #2
+	\ifthenelse{\equal{#1}{}}{}{ \hfill \footnotesize (#1)}%
+	\medskip \end{sf}}
+
+\begin{document}
+
+\section*{Response to the reviewers}
+% General intro text goes here
+We thank the reviewer(s) for his (their) critical assessment and helpful suggestions for our work.
+In the following, we address their concerns point by point.
+
+% Let's start point-by-point with Reviewer 1
+\reviewersection
+% NOT finished
+
+% Point 1 Description
+\begin{point}
+% NOT replied
+\begin{Verbatim}[breaklines=true, breakanywhere=true, breaksymbol=, breakanywheresymbolpre=]
+pt1
+\end{Verbatim}
+\end{point}
+
+% Our reply
+\begin{reply}
+to write
+\end{reply}
+
+% Point 2 Description
+\begin{point}
+% NOT replied
+\begin{Verbatim}[breaklines=true, breakanywhere=true, breaksymbol=, breakanywheresymbolpre=]
+pt2
+\end{Verbatim}
+\end{point}
+
+\begin{reply}
+to write
+\end{reply}
+
+\subsection*{Minor}
+
+% Use the short-hand macros for one-liners.
+\shortpoint{ sp1 }
+\shortreply{ to write }
+
+\shortpoint{ sp2 }
+\shortreply{ to write }
+
+\subsection*{Miscellaneous}
+
+to write
+
+\end{document}

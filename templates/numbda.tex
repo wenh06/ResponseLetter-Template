@@ -1,0 +1,173 @@
+\documentclass[acmsmall]{acmart}
+%\documentclass[manuscript,screen,review]{acmart}
+%\documentclass{letter}
+
+\usepackage{amsfonts}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{enumerate}
+\usepackage{subfigure}
+\usepackage{amsmath}
+\usepackage{courier}
+\usepackage{setspace}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{soul}
+\usepackage{threeparttable}
+\usepackage[capitalize,noabbrev]{cleveref}
+\usepackage{relsize}
+\usepackage{siunitx}
+\DeclareSIUnit\angstrom{\text{Å}}
+% \usepackage{lastpage}
+
+\usepackage{tcolorbox}
+\tcbuselibrary{skins, breakable}
+
+% 定义环境
+\newtcolorbox{bigquote}{
+  enhanced,
+  breakable,
+  colback=white,        % 背景色（可改为 gray!5 之类的）
+  colframe=white,       % 边框颜色（white = 无边框）
+  boxrule=0pt,
+  left=3em,             % 左缩进
+  right=3em,            % 右缩进
+  sharp corners,
+  before skip=10pt,
+  after skip=10pt,
+  overlay={
+    % 左上角的大引号
+    \node[anchor=north west, xshift=.9em,
+          font=\fontsize{25}{25}\selectfont, text=gray!70] 
+          at (frame.north west) {``};
+    % 右下角的大引号
+    \node[anchor=south east, xshift=-.9em, yshift=-.7em,
+          font=\fontsize{25}{25}\selectfont, text=gray!70] 
+          at (frame.south east) {''};
+  }
+}
+
+\theoremstyle{plain}
+%\newtheorem{theorem}{Theorem}[section]
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{assumption}[theorem]{Assumption}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+
+\newcommand{\atn}[1]{\textcolor{blue}{#1}}
+\newcommand{\notice}[1]{{\textrm{\textcolor{black}{#1}}}}
+\newcommand{\reminder}[1]{{\textsf{\textcolor{blue}{[#1]}}}}
+
+\newif\ifHandout
+\Handoutfalse
+% \Handouttrue
+
+
+\ifHandout
+\newcommand{\replyIncomplete}{}
+\newcommand{\replyComplete}{}
+\else
+\newcommand{\replyIncomplete}{{\color{red}(Rely Incomplete)}}
+\newcommand{\replyComplete}{{\color{green}(Rely Complete)}}
+\fi
+
+\newif\ifHighLightChanges
+\HighLightChangestrue
+% \HighLightChangesfalse
+
+\ifHighLightChanges
+\newcommand{\rev}[1]{{\color{blue}{#1}}}
+\else
+\newcommand{\rev}[1]{{#1}}
+\fi
+
+\makeatletter
+\AtBeginDocument{
+  \fancypagestyle{standardpagestyle}{
+    \fancyhf{}
+    \fancyfoot[C]{\@headfootfont Page \thepage\ of \pageref*{TotPages}}
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0pt}
+  }
+  \pagestyle{standardpagestyle}
+}
+\makeatother
+
+%%
+%% \BibTeX command to typeset BibTeX logo in the docs
+% \AtBeginDocument{%
+% 	\providecommand\BibTeX{{%
+% 			\normalfont B\kern-0.5em{\scshape i\kern-0.25em b}\kern-0.8em\TeX}}}
+
+\begin{document}
+\thispagestyle{standardpagestyle}
+
+\textbf{\larger[1] Answers to Reviewers’ Questions for [paper ID]}
+
+\vspace{1em}
+
+We would like to thank all reviewers and the associate editor for their helpful comments. We have addressed all the review comments below using the paragraphs starting with “\textbf{Re:}”.
+All modifications in the original manuscript are marked in \textcolor{blue}{BLUE}.
+
+The modifications are summarized as follows.
+
+% 1) The experiments in Section 5.2 for MC-OER have been modified. To better show the improvements relative to the method in the conference paper, we have added a comparison between the improved method and the original method (the method in the conference paper) in Table 3. Moreover, we reset the time limit for the MC-OER experiment from 24 hours to 168 hours to show more wirelength results of the direct implementation of the MC-MCF model. The results are listed in Table 3 and Table 4, and better evident the advantage of proposed method.
+
+% 2) In Section 4, we have added a subsection (Section 4.2) to demonstrate the details of using the MC-MCF Model to solve sub-problems, such as the order of solving these sub-problems.
+
+% 3) In Section 4, Fig. 17- Fig. 20 have been modified. We have increased the color contrast between the index and node.
+
+% 4)	The possible relation of $C_b$ and $C_d$ is modified and presented in Section 2.1. Then, we explain all the possible relation between them in details in Section 3.2.4.
+
+
+% 5) The whole manuscript is read through carefully. We have tried our best to remove grammar and writing issues.
+
+% 6) Besides, 4 references about unordered escape routing and staggered pin array have been added in the revised paper.
+
+\vspace{2em}
+
+\textbf{Reviewer: 1}
+
+Comments:
+% This paper is an extension of the paper “MC-MCF: A Multi-Capacity Model for Ordered Escape Routing”, which was accepted by ISQED’23. 
+% The original paper utilized MMCF graph to model the multi-capacity OER problem of GPA, and named its method MC-MCF. 
+% The original paper applied ILP to derive the routing solutions, and proposed a routing-resource-driven approach to partition the entire MC-MCF model into sub-models to boost the efficiency. 
+% In this extension, the authors extend their method to address the multi-capacity OER problem of both GPA and SPA. 
+% The efficiency of the MC-MCF method is also improved by utilizing several newly proposed techniques. 
+% However, there are still some issues that the authors are suggested to further improve:
+
+\textbf{Re:}
+Thank you for the positive comments.
+
+\begin{bigquote}
+\rev{Some quote.}
+\end{bigquote}
+
+\vspace{1em}
+
+1. There are currently a few grammatical errors, for instance “… that the region include …”, please fix them.
+
+\textbf{Re:}
+Thanks a lot for the comment. We have fixed the grammatical error (see page 16).
+Besides, the whole manuscript is read through carefully. 
+We have tried our best to remove grammar and writing issues.
+
+\vspace{1em}
+
+2. The quality of the figures can be further improved. For instance, the indexes of the pins in Fig. 17-Fig. 20 are marked black, while the nodes are marked gray, which makes the indexes hard to read.
+
+\textbf{Re:}
+We appreciate this advice.
+Fig. 17- Fig. 20 have been modified. 
+We have increased the color contrast between the index and node to make the index more reader-friendly.
+
+\vspace{1em}
+
+% \bibliographystyle{ACM-Reference-Format}
+% \bibliography{icml22}
+\end{document}

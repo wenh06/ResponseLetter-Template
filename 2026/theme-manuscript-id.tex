@@ -1,0 +1,274 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Academic Paper Response Letter. 
+% LaTeX Template
+% Version 1.0 (20/07/2023)
+% 
+% This template refers to the toolbox tutorial (in Chinese):
+% https://liam.page/2016/07/22/using-the-tcolorbox-package-to-create-a-new-theorem-environment/
+% Please refer to the tutorial for your customization. 
+% 
+% Template license: Creative Commons CC BY 4.0
+%
+% Author: Yuhan Xie
+% Contact email: yhxie0107@gmail.com
+% Any revision advice is welcome!
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\documentclass{article}
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage{times} % make the section title in Times New Roman
+
+\usepackage{booktabs}
+\usepackage{tabu}
+\usepackage[T1]{fontenc}
+
+%% Sets page size and margins
+\usepackage[a4paper,top=2.5cm,bottom=2cm,left=1.7cm,right=1.7cm,marginparwidth=1.75cm]{geometry}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{amsthm}  % 处理定理和证明
+\usepackage{amssymb}    % 数学符号（包括 \mathbb）
+\usepackage{mathtools} 
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{float}
+\usepackage{threeparttable} 
+\usepackage{multirow}
+\usepackage{url}
+
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+\newtheorem{example}{Example}
+\newtheorem{remark}{Remark}
+\newtheorem{definition}{Definition}
+%\newtheorem{proof}{Proof}
+
+% define color
+\definecolor{lightred}{RGB}{216,144,144}
+\definecolor{slightred}{RGB}{251,243,243}
+\definecolor{slightgreen}{RGB}{243,248,243}
+
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{breakable,skins}
+\newtcolorbox{changebox}{
+  enhanced, frame hidden, breakable, sharp corners,
+  leftrule=0pt, rightrule=0pt, toprule=0pt, bottomrule=0pt,
+  boxsep=2pt, top=0.5em, bottom=0.5em, left=0.5em, right=0.5em,
+  before skip=0.75em, after skip=0.75em,
+  colframe=gray, colback = slightgreen
+}
+\newtcolorbox{bigquote}{
+  enhanced,
+  breakable,
+  colback=white,        % 背景色（可改为 gray!5 之类的）
+  colframe=white,       % 边框颜色（white = 无边框）
+  boxrule=0pt,
+  left=3em,             % 左缩进
+  right=3em,            % 右缩进
+  sharp corners,
+  before skip=10pt,
+  after skip=10pt,
+  overlay={
+    % 左上角的大引号
+    \node[anchor=north west, xshift=.9em,
+          font=\fontsize{25}{25}\selectfont, text=gray!70] 
+          at (frame.north west) {``};
+    % 右下角的大引号
+    \node[anchor=south east, xshift=-.9em, yshift=-.7em,
+          font=\fontsize{25}{25}\selectfont, text=gray!70] 
+          at (frame.south east) {''};
+  }
+}
+
+
+\newcommand{\rev}[1]{{\color{magenta}{#1}}}
+
+% define maketitle environment
+\makeatletter
+\def\@maketitle{%
+  \newpage
+  \null
+  \vskip 0.5em%
+  \leftline{Reply to the review report on}
+  \vskip 1.5em%
+  \begin{center}%
+  \let \footnote \thanks
+    {\Large \bfseries \@title \par}%
+    \vskip 1.5em%
+    {\large
+      \lineskip .5em%
+      \begin{tabular}[t]{c}%
+        \@author
+      \end{tabular}\par}%
+    \vskip 1em%
+    {\large \@date}%
+  \end{center}%
+  \par
+  \vskip 1.0em}
+\makeatother
+
+\title{Here Is the Title}
+\author{by \quad Author1~ and ~ Author2}
+\date{\today}
+
+\begin{document}
+
+%	
+%
+%\newtcbtheorem[auto counter, number within = section]{cmt}{Comment}{
+%	colbacktitle = black!60!white, colframe = black!60!white,
+%	colback = black!5!white,
+%	fonttitle=\bfseries,%fontupper=\itshape,
+%}{t}
+
+\newtcbtheorem[auto counter]{cmt}{Comment}{
+	colbacktitle = black!60!white, colframe = black!60!white,
+	colback = black!5!white,
+	fonttitle=\bfseries,%fontupper=\itshape,
+}{t}
+
+
+%\newtcbtheorem[auto counter, number within = section]{cmt}{Comment}{
+%	colbacktitle = black!60!white, colframe = gray,,
+%	colback = {slightred},
+%	fonttitle=\bfseries,%fontupper=\itshape,
+%}{t}
+
+
+\maketitle
+
+
+We thank the editor and the reviewers for the effort in handling and reviewing our manuscript (Paper ID), "(Paper Title)". This paper [state contribution].
+
+
+In the following, we address your concerns point by point. The changes have also been marked in the revised manuscript, highlighted in \rev{magenta}.
+
+\vskip 16pt \hrule height 0.6pt
+
+\section*{Response to Reviewer \#1} 
+\begin{cmt}{}{}
+comment 1
+\end{cmt}
+
+\vspace{0.1cm}
+\noindent
+\underline{\textbf{Response:}}
+\vspace{0.2cm}
+
+Thank you for your insightful comment regarding
+
+\cite{Ma_2024_Segment}
+
+\vspace{0.1cm}
+\noindent
+\underline{\textbf{Changes:}}
+\vspace{0.2cm}
+
+\begin{changebox}
+Page x: \rev{to write
+
+\cite{Wen_2025_VLSIJ}
+}
+\end{changebox}
+
+
+% more comments and replies, changes
+
+
+\medskip
+
+\medskip
+
+We believe these additions and modifications address your concerns and enrich the manuscript by providing a more comprehensive understanding of our proposed algorithm's capabilities and limitations.
+
+Thank you once again for your valuable feedback. We hope that our revised manuscript meets your approval. 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Rewiewer 1
+%\newpage
+%\section{Response to reviewer 1} 
+%
+%%%%%%%%%%%%%% Comment 1.1
+%\begin{cmt}{}{}
+%
+%Comments 1.1
+%
+%\end{cmt}
+%\vspace{0.1cm}
+%\noindent
+%\underline{\textbf{Response:}}
+%\vspace{0.2cm}
+%
+%Your Response 1.1
+%
+%\vspace{0.3cm}
+%
+%
+%%%%%%%%%%%%%% Comment 1.0
+%\begin{cmt*}{}{}        %% use * when do not need enumerate
+%
+%Comments
+%
+%\end{cmt*}
+%\vspace{0.1cm}
+%\noindent
+%\underline{\textbf{Response:}}
+%\vspace{0.2cm}
+%
+%Your Response 
+%
+%\vspace{0.3cm}
+%
+%
+%%%%%%%%%%%%%% Comment 1.2
+%\begin{cmt}{}{}
+%
+%Comments 1.2
+%
+%\end{cmt}
+%\vspace{0.1cm}
+%\noindent
+%\underline{\textbf{Response:}}
+%\vspace{0.2cm}
+%
+%Your Response 1.2
+%
+%\vspace{0.3cm}
+%
+%
+%%%%%%%%%%%%%% Comment 1.3
+%\begin{cmt}{}{}
+%
+%Comments 1.3
+%
+%\end{cmt}
+%\vspace{0.1cm}
+%\noindent
+%\underline{\textbf{Response:}}
+%\vspace{0.2cm}
+%
+%Your Response 1.3
+%
+%\vspace{0.3cm}
+
+
+\bibliographystyle{elsarticle-num}
+\bibliography{
+references/references-settings,
+references/references-med,
+references/references-ml
+}
+
+
+\end{document}

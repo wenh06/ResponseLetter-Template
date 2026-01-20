@@ -1,0 +1,55 @@
+%% revhighlight.sty
+%% Selective revision highlighting
+%% 2025/11/06 v1.1
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{revhighlight}[2025/11/06 v1.1 Selective revision highlighting]
+
+\RequirePackage{xcolor}
+\RequirePackage{xparse}
+
+%% Public switch: \HighLightChangestrue / \HighLightChangesfalse
+\newif\ifHighLightChanges
+% default: off
+\HighLightChangesfalse
+
+%% Target revision number (as integer), default 1
+\newcommand{\revnumber}{1}
+\newcommand{\setrevnumber}[1]{\renewcommand{\revnumber}{#1}}
+
+%% Highlight color (xcolor name/expression). Default: blue
+\colorlet{rev@color}{blue}
+%% Public accessor so users can do \color{\revcolor} if needed
+\newcommand{\revcolor}{rev@color}
+\newcommand{\setrevcolor}[1]{\colorlet{rev@color}{#1}}
+
+%% Style hook for highlighting a span
+%% Note: avoid \leavevmode to keep it safe for block-level content.
+\DeclareRobustCommand{\revstyle}[1]{\textcolor{rev@color}{#1}}
+
+%% Inline/block macro: \rev[n]{text}
+%% Long argument (+m) allows paragraphs and environments.
+\NewDocumentCommand{\rev}{O{\revnumber} +m}{%
+  \ifHighLightChanges
+    \ifnum#1=\revnumber\relax
+      \revstyle{#2}%
+    \else
+      #2%
+    \fi
+  \else
+    #2%
+  \fi
+}
+
+%% Environment form for large blocks: \begin{revblock}[n] ... \end{revblock}
+\NewDocumentEnvironment{revblock}{O{\revnumber}}{%
+  \begingroup
+  \ifHighLightChanges
+    \ifnum#1=\revnumber\relax
+      \color{rev@color}%
+    \fi
+  \fi
+}{%
+  \endgroup
+}
+
+%% End of package
